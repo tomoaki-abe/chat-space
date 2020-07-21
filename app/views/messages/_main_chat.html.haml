@@ -1,0 +1,35 @@
+.Chat-main
+  .Chat-main__group-info
+    .header-group
+      .header-group__name
+        コケコッコー
+      .header-group__list
+        .header-group__list--member
+          Member : 
+        .header-group__list--name
+          阿部
+    = link_to "#", class: "header-editButton" do
+      Edit
+  .Chat-main__message-list
+    .MessageBox
+      .MessageInfo
+        .MessageInfo__name
+          阿部
+        .MessageInfo__date
+          2020/07/17(Fri) 7:40:39
+      .MessageComment
+        おはよう
+      .MessageInfo
+        .MessageInfo__name
+          abe
+        .MessageInfo__date
+          2020/08/20(Sun) 19:18:39
+      .MessageComment
+        こんばんは
+  .Chat-main__message-form
+    = form_with url: root_path, class: "Form" do |form|
+      = form.text_field :content, placeholder: "type a message", class: "Form__contents"
+      %label{class: "Form__image"}
+        %input{type: "file", class: "hidden"}
+        = icon('far', 'image')
+      = form.submit 'Send', class: "Form__submit"
