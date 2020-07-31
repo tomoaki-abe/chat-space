@@ -7,48 +7,49 @@
 
   .Side-bar {
     width: 300px;
-    color: #ffffff ;
+    color: #ffffff;    
     &__user-name{
       height: 100px;
       background-color: #253141;
-      font-size: 16px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      padding: 0 20px;
       .top-items {
         display: flex;
         justify-content: space-between;
         width: 260px;
-        &__icons{
+        height: 20px;
+      &__name{
+        font-weight: bold;
+      }
+        &__Icons{
           width: 60px;
           display: flex;
           justify-content: flex-end;
           align-items: center;
-          .content{
-            color: #ffffff;
-            margin-left: 5px;
-          }
         }
-  
+        &__Icon{
+          text-decoration: none;
+        }
       }
     }
     &__group-list{
       height: calc(100vh - 100px);   
       background-color: #2f3e51;
       font-size: 15px;
-      display: flex;
-      justify-content: center;
-
-      .group-box{
+      padding: 0 20px;
+      .Group{
         width: 260px;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 20px 0 40px;
         &__name {
           font-size: 15px;
-          margin-top: 20px;
-          margin-bottom: 5px;
+          color: #ffffff;
         }
         &__message {
           font-size: 11px;
-          margin-bottom: 40px;
+          margin-top: 5px;
         }
       }
     }
