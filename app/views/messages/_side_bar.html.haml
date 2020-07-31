@@ -1,20 +1,20 @@
 .Side-bar
   .Side-bar__user-name
     .top-items
-      .top-items__name
+      %h3.top-items__name
         = current_user.name
-      .top-items__icons
-        = link_to "#", class: "content" do
-          = icon('fas', 'edit', class: "content__btn")
-        = link_to edit_user_path(current_user), class: "content" do
-          = icon('fas', 'cog', class: "content__btn")
+      %ul.top-items__Icons
+        %li.top-items__Icon
+          = link_to new_group_path, class: "top-items__Icon" do
+            = icon('fas', 'edit')
+        %li.top-items__Icon
+          = link_to edit_user_path(current_user), class: "top-items__Icon" do
+            = icon('fas', 'cog')
   .Side-bar__group-list
-    .group-box
-      .group-box__name
-        こんにちは
-      .group-box__message
-        おはよう
-      .group-box__name
-        好きな食べ物
-      .group-box__message
-        お米
+    - current_user.groups.each do |group|
+      .Group 
+        = link_to '#' do
+          .Group__name
+            = group.name
+          .Group__message
+            メッセージはまだありません      
