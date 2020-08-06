@@ -12,21 +12,10 @@
     = link_to edit_group_path(@group), class: "header-editButton" do
       Edit
   .Chat-main__message-list
-    .MessageBox
-      .MessageInfo
-        .MessageInfo__name
-          阿部
-        .MessageInfo__date
-          2020/07/17(Fri) 7:40:39
-      .MessageComment
-        おはよう
-      .MessageInfo
-        .MessageInfo__name
-          abe
-        .MessageInfo__date
-          2020/08/20(Sun) 19:18:39
-      .MessageComment
-        こんばんは
+    = render @messages
+
+
+
   .Chat-main__message-form
     = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .Form__contents
