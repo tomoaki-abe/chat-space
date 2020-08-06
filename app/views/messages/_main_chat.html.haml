@@ -1,14 +1,15 @@
 .Chat-main
   .Chat-main__group-info
-    .header-group
+    .header-group      
       .header-group__name
-        コケコッコー
+        = @group.name
       .header-group__list
         .header-group__list--member
           Member : 
-        .header-group__list--name
-          阿部
-    = link_to "#", class: "header-editButton" do
+        - @group.users.each do |user|
+          .header-group__list--name
+            = user.name
+    = link_to edit_group_path(@group), class: "header-editButton" do
       Edit
   .Chat-main__message-list
     .MessageBox
@@ -27,9 +28,12 @@
       .MessageComment
         こんばんは
   .Chat-main__message-form
-    = form_with url: root_path, class: "Form" do |form|
-      = form.text_field :content, placeholder: "type a message", class: "Form__contents"
-      %label{class: "Form__image"}
-        %input{type: "file", class: "hidden"}
-        = icon('far', 'image')
-      = form.submit 'Send', class: "Form__submit"
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+      .Form__contents
+        = f.text_field :content,  class: 'Form__content', placeholder: "type a message"
+        = f.label :image, class: 'Form__image' do
+          = icon('far', 'image', class: 'Form__icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'Form__submit'
+
+      
