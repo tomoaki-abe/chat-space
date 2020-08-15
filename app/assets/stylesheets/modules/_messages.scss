@@ -103,6 +103,7 @@
     &__message-list{
       height: calc(100vh - 190px);
       background-color: #fafafa;
+      overflow: scroll;
       .MessageBox{
         margin-left: 40px;
         .MessageInfo{
